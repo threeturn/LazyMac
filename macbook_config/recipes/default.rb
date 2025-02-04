@@ -6,10 +6,12 @@
 
 
 ['iterm2','visual-studio-code'].each do |pkg|
-	homebrew_cask pkg
+	homebrew_cask pkg do
+		options "--force"
+	end
 end
 
-['git', 'podman'].each do |pkg|
+['git', 'oh-my-posh' 'podman'].each do |pkg|
 	homebrew_package pkg
 end
 
