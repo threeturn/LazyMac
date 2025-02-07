@@ -6,3 +6,8 @@
 
 
 homebrew_cask 'intellij-idea-ce'
+
+['jenv', 'chruby'].each do |pkg|
+	homebrew_package pkg
+end
+

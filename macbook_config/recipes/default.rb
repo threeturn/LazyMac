@@ -11,9 +11,7 @@
 	end
 end
 
-['git', 'oh-my-posh' 'podman'].each do |pkg|
+['git', 'tmux'].each do |pkg|
 	homebrew_package pkg
 end
-
-
 
