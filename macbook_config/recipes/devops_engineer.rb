@@ -6,9 +6,17 @@
 
 
 homebrew_tap 'hashicorp/tap'
+homebrew_tap 'warrensbox/tap'
 
-['tflint', 'hashicorp/tap/terraform', 'opentofu', 'awscli', 'tfswitch', 
- 'tgswitch', 'packer', 'granted','helm', 'k9s', 'checkov','kubectx','jfrog-cli'].each do |pkg|
-	homebrew_package pkg
-end
+# Terraform
+homebrew_package %w(opentofu, tflint hashicorp/tap/terraform checkov terragrunt warrensbox/tap/tfswitch warrensbox/tap/tgswitch)
+
+# Aws
+homebrew_package 'awscli'
+
+# Kubernetes
+homebrew_package %w(k9s kubectx helm)
+
+# vm management
+homebrew_package %w(hashicorp/tap/packer)
 

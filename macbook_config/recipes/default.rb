@@ -5,13 +5,9 @@
 # Copyright:: 2025, The Authors, All Rights Reserved.
 
 
-['iterm2','visual-studio-code'].each do |pkg|
-	homebrew_cask pkg do
-		options "--force"
-	end
+
+homebrew_cask w%(iterm2 visual-studio-code) pkg do
+  options       "--force"
 end
 
-['git', 'tmux'].each do |pkg|
-	homebrew_package pkg
-end
-
+homebrew_package w%(git tmux) 
