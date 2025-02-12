@@ -7,8 +7,6 @@
 
 
 homebrew_package 'oh-my-posh'
-homebrew_cask 'font-fira-code-nerd-font'
-
 
 cookbook_file "#{ENV['HOME']}/.zshrc" do 
   source "zshrc"
