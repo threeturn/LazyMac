@@ -6,7 +6,7 @@
 
 
 
-%w(iterm2 visual-studio-code).each do |pkg|
+%w(ghostty visual-studio-code).each do |pkg|
   homebrew_cask pkg do
     options       "--force"
     cask_name     pkg
