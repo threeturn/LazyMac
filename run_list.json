@@ -1,7 +1,9 @@
 {
 "run_list": [
       "recipe[macbook_config::default]",
+      "recipe[macbook_config::zsh]",
       "recipe[macbook_config::developer]",
-      "recipe[macbook_config::devops_engineer]"
+      "recipe[macbook_config::devops_engineer]",
+      "recipe[macbook_config::podman]"
     ]
 }    

@@ -9,7 +9,7 @@ homebrew_tap 'hashicorp/tap'
 homebrew_tap 'warrensbox/tap'
 
 # Terraform
-homebrew_package %w(opentofu, tflint hashicorp/tap/terraform checkov terragrunt warrensbox/tap/tfswitch warrensbox/tap/tgswitch)
+homebrew_package %w(warrensbox/tap/tfswitch warrensbox/tap/tgswitch opentofu tflint checkov terragrunt)
 
 # Aws
 homebrew_package 'awscli'

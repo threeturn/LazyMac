@@ -6,8 +6,11 @@
 
 
 
-homebrew_cask w%(iterm2 visual-studio-code) pkg do
-  options       "--force"
+%w(iterm2 visual-studio-code).each do |pkg|
+  homebrew_cask pkg do
+    options       "--force"
+    cask_name     pkg
+  end
 end
 
-homebrew_package w%(git tmux) 
+homebrew_package %w(git tmux) 
