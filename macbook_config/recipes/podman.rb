@@ -1,4 +1,21 @@
-
+#
+# Cookbook:: macbook_config
+# Recipe:: podman
+#
+# Copyright:: Copyright 2025, Andrea C. Granata
+# License:: Apache License, Version 2.0
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
 
 # Install the Podman package using Homebrew
 homebrew_package 'podman'
@@ -15,7 +32,7 @@ end
 
 # Define the 'podman machine init' command to initialize the Podman machine
 execute 'podman machine init' do
-  command 'podman machine init'
+  command '/opt/homebrew/bin/podman machine init'
   user  node['macbook_config']['uid']
   group node['macbook_config']['gid']
   creates  "#{node['macbook_config']['podman_config_dir']}/containers/podman-connections.json"
