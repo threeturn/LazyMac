@@ -1,5 +1,7 @@
 # Lazy Mac
 
+Life is too short to spend time installing tools
+
 ## Getting started
 
 This project is meant to transform your brand new macbook in a full fledged developer workstation with the useful tools and sensible default so you don't need to do a tedious setup on your own.
@@ -38,7 +40,7 @@ At the end of the execution you will find in your macbook the following tools re
 Just run this oneliner. 
 
 ```
-curl -L https://github.com/threeturn/MacOs-Bootstrap/archive/refs/heads/main.zip -o main.zip && unzip main.zip && cd MacOs-Bootstrap-main && ./bootstrap.sh
+curl -L https://github.com/threeturn/LazyMac/archive/refs/heads/main.zip -o main.zip && unzip main.zip && cd LazyMac-main && ./bootstrap.sh
 ```
 
 ## But i'm using X and I don't see it!
