@@ -20,9 +20,10 @@
 
 homebrew_tap 'hashicorp/tap'
 homebrew_tap 'warrensbox/tap'
+homebrew_tap 'common-fate/granted'
 
 # Terraform
-homebrew_package %w(warrensbox/tap/tfswitch warrensbox/tap/tgswitch opentofu tflint checkov terragrunt)
+homebrew_package %w(warrensbox/tap/tfswitch warrensbox/tap/tgswitch opentofu tflint checkov terragrunt granted)
 
 # Aws
 homebrew_package 'awscli'
