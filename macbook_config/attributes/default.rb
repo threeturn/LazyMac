@@ -1,6 +1,7 @@
 
 
-
+arch = `uname -m`.strip
+default['macbook_config']['homebrew_prefix']   = arch == 'arm64' ? '/opt/homebrew' : '/usr/local'
 default['macbook_config']['rosetta']           = "false"
 default['macbook_config']['cpu']               = "2"
 default['macbook_config']['memory']            = "4096"

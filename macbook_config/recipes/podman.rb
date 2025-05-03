@@ -32,11 +32,11 @@ end
 
 # Define the 'podman machine init' command to initialize the Podman machine
 execute 'podman machine init' do
-  command '/opt/homebrew/bin/podman machine init'
-  user  node['macbook_config']['uid']
-  group node['macbook_config']['gid']
-  creates  "#{node['macbook_config']['podman_config_dir']}/containers/podman-connections.json"
-  action :nothing  # Only run this command when notified
+  command "#{node['macbook_config']['homebrew_prefix']}/bin/podman machine init"
+  user    node['macbook_config']['uid']
+  group   node['macbook_config']['gid']
+  creates "#{node['macbook_config']['podman_config_dir']}/containers/podman-connections.json"
+  action  :nothing
 end
 
 # Create the Podman machine configuration file from a template
