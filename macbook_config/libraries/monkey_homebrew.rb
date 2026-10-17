@@ -16,6 +16,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+require 'etc'
+require 'chef/resource/homebrew_cask'
+
 class Chef
   class Provider
     class Package
@@ -42,5 +45,31 @@ class Chef
 end
 
 
+
+class Chef
+  class Resource
+    class HomebrewCask
+      action :install do
+        unless casked?
+          owner = new_resource.owner
+          account = owner.is_a?(Integer) ? Etc.getpwuid(owner) : Etc.getpwnam(owner)
+
+          execute "install cask #{new_resource.cask_name}" do
+            command "#{homebrew_bin_path(new_resource.homebrew_path)} install --cask #{new_resource.cask_name} #{new_resource.options}"
+            user account.uid
+            group account.gid
+            cwd account.dir
+            login false
+            environment(
+              'HOME' => account.dir,
+              'RUBYOPT' => nil,
+              'TMPDIR' => nil
+            )
+          end
+        end
+      end
+    end
+  end
+end
 
 
