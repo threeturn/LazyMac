@@ -1,0 +1,4 @@
+# Cinc / InSpec runtime artifacts
+cinc_guid
+local-mode-cache/
+inspec.lock
