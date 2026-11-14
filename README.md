@@ -15,6 +15,7 @@ At the end of the execution you will find in your macbook the following tools re
 - Oh-my-posh
 - Visual Studio Code
 - Git
+- SSH Keychain integration
 - Tmux
 - Podman and Podman-Desktop
 - Lima and QEMU
@@ -42,6 +43,16 @@ Just run this oneliner.
 
 ```
 curl -L https://github.com/threeturn/LazyMac/archive/refs/heads/main.zip -o main.zip && unzip main.zip && cd LazyMac-main && ./bootstrap.sh
+```
+
+### SSH Keychain setup
+
+The `macbook_config::ssh` recipe configures `~/.ssh/config` (`AddKeysToAgent yes`, `UseKeychain yes`, `IdentityFile ~/.ssh/id_rsa`) and loads Keychain-stored SSH keys on shell startup (`~/.zshrc.d/ssh.zsh`).
+
+After running `./bootstrap.sh`, run this once to store your SSH key passphrase in macOS Keychain:
+
+```zsh
+ssh-add --apple-use-keychain ~/.ssh/id_rsa
 ```
 
 ## But i'm using X and I don't see it!

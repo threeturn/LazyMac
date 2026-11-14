@@ -1,0 +1,6 @@
+Host *
+  AddKeysToAgent yes
+  UseKeychain yes
+<% node['macbook_config']['ssh_identity_files'].each do |identity_file| -%>
+  IdentityFile <%= identity_file %>
+<% end -%>
