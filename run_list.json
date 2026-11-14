@@ -5,6 +5,7 @@
       "recipe[macbook_config::developer]",
       "recipe[macbook_config::devops_engineer]",
       "recipe[macbook_config::podman]",
-      "recipe[macbook_config::harness]"
+      "recipe[macbook_config::harness]",
+      "recipe[macbook_config::lima]"
     ]
 }    

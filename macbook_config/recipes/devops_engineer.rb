@@ -26,6 +26,16 @@ homebrew_tap 'common-fate/granted' do
   action [:tap, :trust]
 end
 
+homebrew_tap 'warrensbox/tap' do
+  trusted_formulae ['warrensbox/tap/tgswitch']
+  action [:tap, :trust]
+end
+
+homebrew_tap 'hashicorp/tap' do
+  trusted_formulae ['hashicorp/tap/packer']
+  action [:tap, :trust]
+end
+
 # Terraform
 homebrew_cask 'warrensbox/tap/tfswitch'
 homebrew_package %w(opentofu tflint checkov terragrunt warrensbox/tap/tgswitch common-fate/granted/granted)

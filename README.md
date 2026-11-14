@@ -17,6 +17,7 @@ At the end of the execution you will find in your macbook the following tools re
 - Git
 - Tmux
 - Podman and Podman-Desktop
+- Lima and QEMU
 - Intellij CE
 - Chruby
 - JEnv

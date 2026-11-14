@@ -1,3 +1,9 @@
 source <%= node['macbook_config']['homebrew_prefix'] %>/opt/chruby/share/chruby/chruby.sh
 source <%= node['macbook_config']['homebrew_prefix'] %>/opt/chruby/share/chruby/auto.sh
-chruby ruby-3.3.5
+RUBIES+=(<%= node['macbook_config']['homebrew_prefix'] %>/Cellar/ruby/*(N) <%= node['macbook_config']['homebrew_prefix'] %>/Cellar/ruby@*/*(N))
+
+homebrew_rubies=(<%= node['macbook_config']['homebrew_prefix'] %>/Cellar/ruby/*(N))
+if (( ${#homebrew_rubies} > 0 )); then
+  chruby "${homebrew_rubies[-1]:t}"
+fi
+unset homebrew_rubies
