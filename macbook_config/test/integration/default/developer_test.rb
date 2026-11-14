@@ -1,16 +1,34 @@
-# Chef InSpec test for recipe macbook_config::developer
+# Cinc Auditor test for recipe macbook_config::developer
 
-# The Chef InSpec reference, with examples and extensive documentation, can be
-# found at https://docs.chef.io/inspec/resources/
+control 'developer-packages' do
+  impact 1.0
+  title 'Install developer tools through Homebrew'
 
-unless os.windows?
-  # This is an example test, replace with your own test.
-  describe user('root'), :skip do
-    it { should exist }
+  %w(jenv chruby jfrog-cli).each do |pkg|
+    describe package(pkg) do
+      it { should be_installed }
+    end
+  end
+
+  describe command('brew list --cask --versions intellij-idea-ce') do
+    its('exit_status') { should eq 0 }
+    its('stdout') { should match(/^intellij-idea-ce\s+\S+/) }
   end
 end
 
-# This is an example test, replace it with your own test.
-describe port(80), :skip do
-  it { should_not be_listening }
+control 'developer-config' do
+  impact 1.0
+  title 'Configure jenv and chruby in zshrc.d'
+
+  describe file("#{ENV['HOME']}/.zshrc.d/jenv.zsh") do
+    it { should exist }
+    its('mode') { should cmp '0644' }
+  end
+
+  describe file("#{ENV['HOME']}/.zshrc.d/chruby.zsh") do
+    it { should exist }
+    its('mode') { should cmp '0644' }
+    its('content') { should match(/chruby\.sh/) }
+    its('content') { should match(/RUBIES\+=/) }
+  end
 end

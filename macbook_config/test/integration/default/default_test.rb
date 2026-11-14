@@ -1,16 +1,34 @@
-# Chef InSpec test for recipe macbook_config::default
+# Cinc Auditor test for recipe macbook_config::default
 
-# The Chef InSpec reference, with examples and extensive documentation, can be
-# found at https://docs.chef.io/inspec/resources/
+control 'default-packages' do
+  impact 1.0
+  title 'Install core packages and casks through Homebrew'
 
-unless os.windows?
-  # This is an example test, replace with your own test.
-  describe user('root'), :skip do
-    it { should exist }
+  %w(git tmux).each do |pkg|
+    describe package(pkg) do
+      it { should be_installed }
+    end
+  end
+
+  %w(ghostty visual-studio-code).each do |cask|
+    describe command("brew list --cask --versions #{cask}") do
+      its('exit_status') { should eq 0 }
+      its('stdout') { should match(/^#{cask}\s+\S+/) }
+    end
   end
 end
 
-# This is an example test, replace it with your own test.
-describe port(80), :skip do
-  it { should_not be_listening }
+control 'default-executables' do
+  impact 1.0
+  title 'Run core CLIs successfully'
+
+  describe command('git --version') do
+    its('exit_status') { should eq 0 }
+    its('stdout') { should match(/git version/i) }
+  end
+
+  describe command('tmux -V') do
+    its('exit_status') { should eq 0 }
+    its('stdout') { should match(/tmux/i) }
+  end
 end
