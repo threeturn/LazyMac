@@ -1,0 +1,17 @@
+# Copy this file to attributes.local.yml (or pass via ./bootstrap.sh --attributes <file>)
+# to customize cookbook attributes for your machine.
+
+macbook_config:
+  # Enable Rosetta 2 in Podman VM for running x86_64 containers on Apple Silicon ("true" or "false")
+  rosetta: "false"
+
+  # Number of virtual CPUs allocated to the Podman machine
+  cpu: "2"
+
+  # Memory (in MB) allocated to the Podman machine
+  memory: "4096"
+
+  # SSH private key paths added as IdentityFile entries in ~/.ssh/config
+  ssh_identity_files:
+    - "~/.ssh/id_rsa"
+    # - "~/.ssh/id_ed25519"

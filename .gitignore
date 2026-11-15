@@ -1,4 +1,16 @@
+# macOS
+.DS_Store
+
 # Cinc / InSpec runtime artifacts
 cinc_guid
 local-mode-cache/
 inspec.lock
+.policy_export/
+policies/*.lock.json
+
+# Local attribute overrides & secrets
+attributes.local.yml
+attributes.local.yaml
+attributes.local.json
+.env
+.env.*
