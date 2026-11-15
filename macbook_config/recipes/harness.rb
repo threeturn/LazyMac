@@ -6,6 +6,7 @@
 
 homebrew_cask 'codex'
 homebrew_cask 'antigravity-cli'
+homebrew_cask 'claude-code'
 
 homebrew_tap 'anomalyco/tap' do
   trusted_formulae ['anomalyco/tap/opencode-v2']
